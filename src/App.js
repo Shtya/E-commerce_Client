@@ -31,7 +31,7 @@ import ProtectedRoute from "./hook/Register/ProtectedRoute";
 import Product_Category from "./Page/Category/Product_Category";
 function App() {
 
-  const [user, isUser, isAdmin] = Auth()
+  const [user, isUser, isAdmin , register] = Auth()
   
   return (
     <div className="font" >
@@ -41,7 +41,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />                               {/* Done */}
           <Route path="/register" element={<RegisterPage />} />                    {/* Done */}
 
-          <Route element={<ProtectedRoute auth={user} />} >
+          <Route element={<ProtectedRoute auth={register} />} >
             
           <Route path="/allcategory" element={<AllCategoryPage />} />              {/* Done */}
           <Route path="/allbrand" element={<AllBrandPage />} />                    {/* Done */}

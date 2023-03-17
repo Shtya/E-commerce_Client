@@ -6,9 +6,11 @@ const Auth = () => {
   const [user, setuser] = useState(JSON.parse(localStorage.getItem("user")))
   const [isUser , setisUser] =useState()
   const [isAdmin, setisAdmin] = useState()
+  const [register , setregister] = useState()
   
   useEffect(_ => {
     if (localStorage.getItem("user") != null) {
+      setregister(true)
       if (user.role === "user") {
         setisUser(true)
         setisAdmin(false)
@@ -21,10 +23,11 @@ const Auth = () => {
     } else {
       setisUser(false)
       setisAdmin(false)
+      setregister(false)
     }
   } ,[])
 
-  return [user , isUser , isAdmin]
+  return [user , isUser , isAdmin , register]
 }
 
 export default Auth
